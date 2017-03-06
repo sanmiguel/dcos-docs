@@ -1,6 +1,6 @@
 ---
 post_title: Marathon API
-nav_title: Marathon API
+nav_title: Marathon
 menu_order: 5
 ---
 

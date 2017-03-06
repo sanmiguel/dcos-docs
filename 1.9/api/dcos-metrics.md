@@ -1,6 +1,6 @@
 ---
 post_title: DC/OS Metrics API
-nav_title: Metrics API
+nav_title: Metrics
 feature_maturity: experimental
 menu_order: 10
 ---

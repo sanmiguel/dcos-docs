@@ -1,5 +1,5 @@
 ---
-post_title: Master API
+post_title: Master Routes
 menu_order: 1
 ---
 

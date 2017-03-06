@@ -1,6 +1,6 @@
 ---
 post_title: DC/OS Log API
-nav_title: Log API
+nav_title: Log
 menu_order: 10
 feature_maturity: experimental
 ---
