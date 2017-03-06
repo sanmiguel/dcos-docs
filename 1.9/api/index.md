@@ -11,9 +11,16 @@ The DC/OS API is a collection of microservice component APIs made available thro
 
 A version of Admin Router runs on every DC/OS node.
 
-**Admin Router** runs on the master nodes and serves as the primary API gateway to interact with DC/OS components. For a list of routes available on master nodes, see [Master API](/docs/1.9/api/master-api/).
+**Admin Router** runs on the master nodes and serves as the primary API gateway to interact with DC/OS components.
 
-**Admin Router Agent** runs on the agent nodes and provides routes for monitoring, debugging, and administration. Access to Admin Router Agent is routed through the master Admin Router. For a list of routes available on master nodes, see [Agent API](/docs/1.9/api/agent-api/).
+For a list of routes available on master nodes, see [Master API](/docs/1.9/api/master-api/).
+
+**Admin Router Agent** runs on the agent nodes and provides routes for monitoring, debugging, and administration.
+
+Some agent routes, like logs and metrics, are proxied through the master Admin Router to allow external access.
+Other routes, like component health and management, are for internal use only.
+
+For a list of routes available on agent nodes, see [Agent API](/docs/1.9/api/agent-api/).
 
 
 ## Route Types
