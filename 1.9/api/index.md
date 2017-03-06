@@ -37,7 +37,7 @@ The primary method of reaching the component APIs is through the Admin Router [M
   - [Apache Mesos](https://mesos.apache.org/documentation/latest/endpoints/)
   - [Exhibitor](https://github.com/soabase/exhibitor/wiki/REST-Introduction)
 - Container Orchestration
-  - [Marathon](/docs/1.9/usage/marathon/rest-api/)
+  - [Marathon](/docs/1.9/api/marathon/)
   - [DC/OS Jobs (Metronome)](https://dcos.github.io/metronome/docs/generated/api.html)
 - Logging and Metrics
   - [DC/OS Diagnostics (3DT)](/docs/1.9/administration/monitoring/#system-health-http-api-endpoint)
