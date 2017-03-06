@@ -4,18 +4,21 @@ feature_maturity: experimental
 menu_order: 3.5
 ---
 
-The [metrics component](https://github.com/dcos/dcos-metrics) provides metrics from DC/OS cluster hosts, containers running on those hosts, and from applications running on DC/OS which choose to send statsd metrics to our Mesos Metrics Module. The metrics component is natively integrated with DC/OS version 1.9 and later and is available per-host from the `/system/v1/metrics/v0` HTTP API endpoint. No additional setup is required.  
+The [DC/OS Metrics component](/docs/1.9/overview/architecture/components/#dcos-metrics) provides metrics from DC/OS cluster hosts, containers running on those hosts, and from applications running on DC/OS which choose to send statsd metrics to our Mesos Metrics Module. The metrics component is natively integrated with DC/OS version 1.9 and later and is available per-host from the `/system/v1/metrics/v0` HTTP API endpoint. No additional setup is required.
+
+For API reference, see the [DC/OS Metrics API](/docs/1.9/api/dcos-metrics/).
+
 
 ## Overview
-There are three layers of metrics available in DC/OS: 
+There are three layers of metrics available in DC/OS:
 
-  * Host: metrics about the specific node which is part of the DC/OS cluster. 
-  * Container: metrics about cgroup allocations from tasks running in Mesos or Docker containerizers. 
+  * Host: metrics about the specific node which is part of the DC/OS cluster.
+  * Container: metrics about cgroup allocations from tasks running in Mesos or Docker containerizers.
   * Application: metrics about a specific application running inside the DC/OS Universal [container runtime](/docs/1.9/usage/containerizers/).
 
-The metrics component provides an HTTP API which exposes these three areas. 
+The metrics component provides an HTTP API which exposes these three areas.
 
-All three metrics layers are aggregated by a collector which is shipped as part of the DC/OS distribution. This enables metrics to run on every host in the cluster. It is the main entry point to the metrics ecosystem, aggregating metrics sent to it by the Metrics Mesos module, or gathering host and container level metrics on the box which is runs. 
+All three metrics layers are aggregated by a collector which is shipped as part of the DC/OS distribution. This enables metrics to run on every host in the cluster. It is the main entry point to the metrics ecosystem, aggregating metrics sent to it by the Metrics Mesos module, or gathering host and container level metrics on the box which is runs.
 
 The Mesos Metrics Module is bundled with every agent in the cluster. This module enables applications to publish metrics from applications running on top of DC/OS to the collector by exposing a StatsD port and host environment variable inside every container. These metrics are appended with structured data such as agent-id, framework-id and task-id.
 
@@ -40,7 +43,7 @@ These metrics are automatically collected.
 ###  Node
 
 #### Metrics
-   
+
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | cpu.cores         |    Percentage of cores used.     |
@@ -61,9 +64,9 @@ These metrics are automatically collected.
 | swap.total         |  Total swap space.    |
 | swap.used         |    Amount of swap space used.    |
 | uptime          |   The system reliability and load average.    |
-   
+
 #### Filesystems
-   
+
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | filesystem.{{.Name}}.capacity.free    | Amount of available capacity in bytes. |
@@ -74,9 +77,9 @@ These metrics are automatically collected.
 | filesystem.{{.Name}}.inodes.used    | Inodes used in bytes.  |
 
 **Note:** `{{.Name}}` is part of a [go template](https://golang.org/pkg/html/template/) and is automatically populated based on the mount path of the local filesystem (e.g., `/`, `/boot`, etc).
-      
+
 #### Network interfaces
-   
+
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | network.{{.Name}}.in.bytes    | Number of bytes downloaded. |
@@ -89,14 +92,14 @@ These metrics are automatically collected.
 | network.{{.Name}}.out.packets    | Number of packets uploaded. |
 
 **Note:** `{{.Name}}` is part of a [go template](https://golang.org/pkg/html/template/) and is automatically populated based on the mount path of the local filesystem (e.g., `/`, `/boot`, etc).
-   
+
 ### Container metrics
 
 Per-container resource utilization metrics.
 
 #### CPU usage info
    <!-- https://github.com/apache/mesos/blob/1.0.1/include/mesos/v1/mesos.proto -->
-   
+
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | cpus_limit    | The number of CPUs allocated. |
@@ -105,24 +108,24 @@ Per-container resource utilization metrics.
 | cpus_user_time_secs    | Total CPU time spent in user mode. |
 
 #### Disk info
-   
+
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | disk_limit_bytes    | Hard memory limit for disk in bytes. |
 | disk_used_bytes    | Hard memory used in bytes.  |
-   
+
 ####  Memory info
    <!-- https://github.com/apache/mesos/blob/1.0.1/include/mesos/v1/mesos.proto -->
-   
+
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | mem_limit_bytes    | Hard memory limit for a container. |
-| mem_total_bytes    | Total memory of a process in RAM (as opposed to in Swap). |   
-   
+| mem_total_bytes    | Total memory of a process in RAM (as opposed to in Swap). |
+
 ### Dimensions
    <!-- http://mesos.apache.org/documentation/latest/port-mapping-isolator -->
 Dimensions are metadata about the metrics contained in a given MetricsMessage
-   
+
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | net_rx_bytes    | Bytes received. |

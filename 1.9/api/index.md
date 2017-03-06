@@ -49,7 +49,7 @@ The primary method of reaching the component APIs is through the Admin Router [M
 - Logging and Metrics
   - [DC/OS Diagnostics (3DT)](/docs/1.9/administration/monitoring/#system-health-http-api-endpoint)
   - [DC/OS Log](/docs/1.9/api/dcos-log/)
-  - [DC/OS Metrics](/docs/1.9/administration/metrics/metrics-api/)
+  - [DC/OS Metrics](/docs/1.9/api/dcos-metrics/)
   - [DC/OS History](https://github.com/dcos/dcos/tree/master/packages/dcos-history/extra#api)
 - Networking
   - [Mesos DNS](/docs/1.9/usage/service-discovery/mesos-dns/http-interface/)
