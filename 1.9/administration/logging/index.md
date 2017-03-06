@@ -6,9 +6,11 @@ menu_order: 3.4
 
 DC/OS cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services.
 
+For API reference, see the [DC/OS Log API](/docs/1.9/api/dcos-log/).
+
 ## Service and Task Logs
 
-You can access DC/OS task logs by running this CLI command: 
+You can access DC/OS task logs by running this CLI command:
 
 ```bash
 $ dcos task log --follow my-service-name
@@ -27,10 +29,10 @@ $ journalctl -u "dcos-*" -b
 ```
 
 You can view the logs for specific [components](/docs/1.9/overview/architecture/components/) by entering the component name. For example, to access Admin Router logs, run this command:
-    
+
 ```bash
 journalctl -u dcos-nginx -b
-``` 
+```
 
 You can find which components are unhealthy in the DC/OS GUI from the **Nodes** tab.
 

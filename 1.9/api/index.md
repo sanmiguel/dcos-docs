@@ -41,7 +41,7 @@ The primary method of reaching the component APIs is through the Admin Router [M
   - [DC/OS Jobs (Metronome)](https://dcos.github.io/metronome/docs/generated/api.html)
 - Logging and Metrics
   - [DC/OS Diagnostics (3DT)](/docs/1.9/administration/monitoring/#system-health-http-api-endpoint)
-  - [DC/OS Log](/docs/1.9/administration/logging/logging-api/)
+  - [DC/OS Log](/docs/1.9/api/dcos-log/)
   - [DC/OS Metrics](/docs/1.9/administration/metrics/metrics-api/)
   - [DC/OS History](https://github.com/dcos/dcos/tree/master/packages/dcos-history/extra#api)
 - Networking
