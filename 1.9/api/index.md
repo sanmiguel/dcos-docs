@@ -9,6 +9,8 @@ The DC/OS API is a collection of microservice component APIs made available thro
 
 ## Topology
 
+![DC/OS API Topology](/docs/1.9/api/img/dcos-api-topology.png)
+
 A version of Admin Router runs on every DC/OS node.
 
 **Admin Router** runs on the master nodes and serves as the primary API gateway to interact with DC/OS components.
