@@ -4,30 +4,28 @@ nav_title: API
 menu_order: 4
 ---
 
-The DC/OS API is a collection of microservice component APIs made available through [Admin Router](/docs/1.9/overview/architecture/components/#admin-router), an API gateway.
+The DC/OS API is a collection of microservice [Component APIs](#component-apis) made available through [Admin Router](/docs/1.9/overview/architecture/components/#admin-router), an API gateway.
 
 
 ## Routing
 
 ![DC/OS API Routing](/docs/1.9/api/img/dcos-api-routing.png)
 
-A version of Admin Router runs on every DC/OS node.
+**Admin Router Master** runs on each master node and serves as the primary API gateway for interaction with DC/OS components.
 
-**Admin Router** runs on the master nodes and serves as the primary API gateway to interact with DC/OS components.
+See [Master Routes](/docs/1.9/api/master-routes/) for a list of routes available on master nodes.
 
-For a list of routes available on master nodes, see [Master Routes](/docs/1.9/api/master-routes/).
-
-**Admin Router Agent** runs on the agent nodes and provides routes for monitoring, debugging, and administration.
+**Admin Router Agent** runs on each agent node and provides routes for monitoring, debugging, and administration.
 
 Some agent routes, like logs and metrics, are proxied through the master Admin Router to allow external access.
 Other routes, like component health and management, are for internal use only.
 
-For a list of routes available on agent nodes, see [Agent Routes](/docs/1.9/api/agent-routes/).
+See [Agent Routes](/docs/1.9/api/agent-routes/)for a list of routes available on agent nodes.
 
 
 ## Route Types
 
-Routes are generally one of three types:
+Individual routes are generally one of three types:
 
 **Backend** routes proxy to a component API.
 
