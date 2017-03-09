@@ -18,7 +18,7 @@ See [Master Routes](/docs/1.9/api/master-routes/) for a list of routes available
 **Admin Router Agent** runs on each agent node and provides routes for monitoring, debugging, and administration.
 
 Some agent routes, like logs and metrics, are proxied through the master Admin Router to allow external access.
-Other routes, like component health and management, are for internal use only.
+Other routes, like component management, are for internal use only.
 
 See [Agent Routes](/docs/1.9/api/agent-routes/)for a list of routes available on agent nodes.
 
