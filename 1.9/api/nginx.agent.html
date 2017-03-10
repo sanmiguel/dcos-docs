@@ -10,16 +10,16 @@
 <h3><a id="dcos-component-package-manager-pkgpanda" href="#dcos-component-package-manager-pkgpanda" aria-hidden="true">DC/OS Component Package Manager (Pkgpanda)</a></h3>
 
 <ul class="route-table">
-  <li class="route-type-backend">
+  <li class="route-type-proxy">
     <h3 class="route">
-      <span class="route-type">Backend</span>
+      <span class="route-type">Proxy</span>
       <span class="route-path"><code>/pkgpanda/</code></span>
     </h3>
     <div class="route-meta">
       <table>
         <tr>
           <td>
-            Backend:
+            Proxy:
           </td>
           <td>
             <code>http://&lt;socket&gt;/</code>
@@ -33,6 +33,14 @@
             <code>/run/dcos/pkgpanda-api.sock</code>
           </td>
         </tr>
+        <tr>
+          <td>
+            Backend:
+          </td>
+          <td>
+            <a href="https://dcos.io/docs/1.9/administration/component-management/">DC/OS Component Package Manager (Pkgpanda)</a>
+          </td>
+        </tr>
       </table>
     </div>
   </li>
@@ -41,16 +49,16 @@
 <h3><a id="dcos-diagnostics-3dt" href="#dcos-diagnostics-3dt" aria-hidden="true">DC/OS Diagnostics (3DT)</a></h3>
 
 <ul class="route-table">
-  <li class="route-type-backend">
+  <li class="route-type-proxy">
     <h3 class="route">
-      <span class="route-type">Backend</span>
+      <span class="route-type">Proxy</span>
       <span class="route-path"><code>/system/health/v1</code></span>
     </h3>
     <div class="route-meta">
       <table>
         <tr>
           <td>
-            Backend:
+            Proxy:
           </td>
           <td>
             <code>http://&lt;socket&gt;</code>
@@ -64,6 +72,14 @@
             <code>/run/dcos/3dt.sock</code>
           </td>
         </tr>
+        <tr>
+          <td>
+            Backend:
+          </td>
+          <td>
+            <a href="https://dcos.io/docs/1.9/administration/monitoring/#system-health-http-api-endpoint">DC/OS Diagnostics (3DT)</a>
+          </td>
+        </tr>
       </table>
     </div>
   </li>
@@ -72,16 +88,16 @@
 <h3><a id="dcos-log" href="#dcos-log" aria-hidden="true">DC/OS Log</a></h3>
 
 <ul class="route-table">
-  <li class="route-type-backend">
+  <li class="route-type-proxy">
     <h3 class="route">
-      <span class="route-type">Backend</span>
+      <span class="route-type">Proxy</span>
       <span class="route-path"><code>/system/v1/logs/v1/</code></span>
     </h3>
     <div class="route-meta">
       <table>
         <tr>
           <td>
-            Backend:
+            Proxy:
           </td>
           <td>
             <code>http://&lt;socket&gt;/</code>
@@ -95,6 +111,14 @@
             <code>/run/dcos/dcos-log.sock</code>
           </td>
         </tr>
+        <tr>
+          <td>
+            Backend:
+          </td>
+          <td>
+            <a href="https://dcos.io/docs/1.9/api/dcos-log/">DC/OS Log</a>
+          </td>
+        </tr>
       </table>
     </div>
   </li>
@@ -103,16 +127,16 @@
 <h3><a id="dcos-metrics" href="#dcos-metrics" aria-hidden="true">DC/OS Metrics</a></h3>
 
 <ul class="route-table">
-  <li class="route-type-backend">
+  <li class="route-type-proxy">
     <h3 class="route">
-      <span class="route-type">Backend</span>
+      <span class="route-type">Proxy</span>
       <span class="route-path"><code>/system/v1/metrics/</code></span>
     </h3>
     <div class="route-meta">
       <table>
         <tr>
           <td>
-            Backend:
+            Proxy:
           </td>
           <td>
             <code>http://&lt;socket&gt;/</code>
@@ -124,6 +148,14 @@
           </td>
           <td>
             <code>/run/dcos/dcos-metrics-agent.sock</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Backend:
+          </td>
+          <td>
+            <a href="https://dcos.io/docs/1.9/api/dcos-metrics/">DC/OS Metrics</a>
           </td>
         </tr>
       </table>
