@@ -58,6 +58,6 @@ The primary method of reaching the component APIs is through the Admin Router [M
   - [DC/OS Package Manager (Cosmos)](https://github.com/dcos/cosmos#api-method-version-compatibility)
   - [DC/OS Component Package Manager (Pkgpanda)](/docs/1.9/administration/component-management/)
 - IAM and Security
-  - [DC/OS Authentication](#dcos-authentication)
+  - [DC/OS Authentication](/docs/1.9/administration/id-and-access-mgt/iam-api/)
 
 For more about the components and their function, see [Components](/docs/1.9/overview/architecture/components/).
