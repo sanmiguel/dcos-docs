@@ -1,65 +1,22 @@
 
 <ul>
-    <li><a href="#admin-router">Admin Router</a></li>
-    <li><a href="#apache-mesos">Apache Mesos</a></li>
-    <li><a href="#dcos-authentication-oauth">DC/OS Authentication (OAuth)</a></li>
-    <li><a href="#dcos-component-package-manager-pkgpanda">DC/OS Component Package Manager (Pkgpanda)</a></li>
-    <li><a href="#dcos-diagnostics-3dt">DC/OS Diagnostics (3DT)</a></li>
-    <li><a href="#dcos-history">DC/OS History</a></li>
-    <li><a href="#dcos-log">DC/OS Log</a></li>
-    <li><a href="#dcos-metrics">DC/OS Metrics</a></li>
-    <li><a href="#dcos-package-manager-cosmos">DC/OS Package Manager (Cosmos)</a></li>
-    <li><a href="#exhibitor-zookeeper">Exhibitor (Zookeeper)</a></li>
+    <li><a href="#agent">Agent</a></li>
+    <li><a href="#authentication">Authentication</a></li>
+    <li><a href="#exhibitor">Exhibitor</a></li>
+    <li><a href="#history">History</a></li>
     <li><a href="#marathon">Marathon</a></li>
+    <li><a href="#mesos">Mesos</a></li>
     <li><a href="#mesos-dns">Mesos DNS</a></li>
+    <li><a href="#metadata">Metadata</a></li>
     <li><a href="#navstar">Navstar</a></li>
+    <li><a href="#package-management">Package Management</a></li>
+    <li><a href="#pkgpanda">Pkgpanda</a></li>
+    <li><a href="#service">Service</a></li>
     <li><a href="#system">System</a></li>
 </ul>
 
 
-<h3><a id="admin-router" href="#admin-router" aria-hidden="true">Admin Router</a></h3>
-
-<ul class="route-table">
-    <li class="route-type-redirect">
-        <h3 class="route">
-            <span class="route-type">Redirect</span>
-            <span class="route-path"><code>/service/(?&lt;serviceid&gt;[0-9a-zA-Z-.]+)</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        Redirect:
-                    </td>
-                    <td>
-                        <code>/service/&lt;serviceid&gt;/</code>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
-    <li class="route-type-proxy">
-        <h3 class="route">
-            <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/service/(?&lt;serviceid&gt;[0-9a-zA-Z-.]+)/(?&lt;url&gt;.*)</code></span>
-            <span class="route-desc">Proxy to Services running on DC/OS</span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        Proxy:
-                    </td>
-                    <td>
-                        <code>$serviceurl</code>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
-</ul>
-
-<h3><a id="apache-mesos" href="#apache-mesos" aria-hidden="true">Apache Mesos</a></h3>
+<h3><a id="agent" href="#agent" aria-hidden="true">Agent</a></h3>
 
 <ul class="route-table">
     <li class="route-type-redirect">
@@ -98,6 +55,232 @@
             </table>
         </div>
     </li>
+</ul>
+
+<h3><a id="authentication" href="#authentication" aria-hidden="true">Authentication</a></h3>
+
+<ul class="route-table">
+    <li class="route-type-proxy">
+        <h3 class="route">
+            <span class="route-type">Proxy</span>
+            <span class="route-path"><code>/acs/api/v1</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        Proxy:
+                    </td>
+                    <td>
+                        <code>http://127.0.0.1:8101</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Backend:
+                    </td>
+                    <td>
+                        <a href="https://dcos.io/docs/1.9/administration/id-and-access-mgt/iam-api/">DC/OS Authentication (OAuth)</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+    <li class="route-type-proxy">
+        <h3 class="route">
+            <span class="route-type">Proxy</span>
+            <span class="route-path"><code>/acs/api/v1/auth/</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        Proxy:
+                    </td>
+                    <td>
+                        <code>http://127.0.0.1:8101</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Backend:
+                    </td>
+                    <td>
+                        <a href="https://dcos.io/docs/1.9/administration/id-and-access-mgt/iam-api/">DC/OS Authentication (OAuth)</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+    <li class="route-type-redirect">
+        <h3 class="route">
+            <span class="route-type">Redirect</span>
+            <span class="route-path"><code>/login</code></span>
+            <span class="route-desc">User Login</span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        Redirect:
+                    </td>
+                    <td>
+                        To OpenID Connect Server
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+</ul>
+
+<h3><a id="exhibitor" href="#exhibitor" aria-hidden="true">Exhibitor</a></h3>
+
+<ul class="route-table">
+    <li class="route-type-redirect">
+        <h3 class="route">
+            <span class="route-type">Redirect</span>
+            <span class="route-path"><code>/exhibitor</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        Redirect:
+                    </td>
+                    <td>
+                        <code>/exhibitor/</code>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+    <li class="route-type-proxy">
+        <h3 class="route">
+            <span class="route-type">Proxy</span>
+            <span class="route-path"><code>/exhibitor/</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        Proxy:
+                    </td>
+                    <td>
+                        <code>http://127.0.0.1:8181/</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Backend:
+                    </td>
+                    <td>
+                        <a href="https://github.com/soabase/exhibitor/wiki/REST-Introduction">Exhibitor (Zookeeper)</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+</ul>
+
+<h3><a id="history" href="#history" aria-hidden="true">History</a></h3>
+
+<ul class="route-table">
+    <li class="route-type-proxy">
+        <h3 class="route">
+            <span class="route-type">Proxy</span>
+            <span class="route-path"><code>/dcos-history-service/</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        Proxy:
+                    </td>
+                    <td>
+                        <code>http://leader.mesos:15055/</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Backend:
+                    </td>
+                    <td>
+                        <a href="https://github.com/dcos/dcos/tree/master/packages/dcos-history/extra#api">DC/OS History</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+</ul>
+
+<h3><a id="marathon" href="#marathon" aria-hidden="true">Marathon</a></h3>
+
+<ul class="route-table">
+    <li class="route-type-redirect">
+        <h3 class="route">
+            <span class="route-type">Redirect</span>
+            <span class="route-path"><code>/marathon</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        Redirect:
+                    </td>
+                    <td>
+                        <code>/marathon/</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Deprecated:
+                    </td>
+                    <td>
+                        Use <code>/service/marathon/</code>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+    <li class="route-type-proxy">
+        <h3 class="route">
+            <span class="route-type">Proxy</span>
+            <span class="route-path"><code>/marathon/</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        Proxy:
+                    </td>
+                    <td>
+                        <code>http://master.mesos:8080/</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Backend:
+                    </td>
+                    <td>
+                        <a href="https://dcos.io/docs/1.9/api/marathon/">Marathon</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Deprecated:
+                    </td>
+                    <td>
+                        Use <code>/service/marathon/</code>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+</ul>
+
+<h3><a id="mesos" href="#mesos" aria-hidden="true">Mesos</a></h3>
+
+<ul class="route-table">
     <li class="route-type-proxy">
         <h3 class="route">
             <span class="route-type">Proxy</span>
@@ -178,66 +361,13 @@
     </li>
 </ul>
 
-<h3><a id="dcos-authentication-oauth" href="#dcos-authentication-oauth" aria-hidden="true">DC/OS Authentication (OAuth)</a></h3>
+<h3><a id="mesos-dns" href="#mesos-dns" aria-hidden="true">Mesos DNS</a></h3>
 
 <ul class="route-table">
-    <li class="route-type-proxy">
-        <h3 class="route">
-            <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/acs/api/v1</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        Proxy:
-                    </td>
-                    <td>
-                        <code>http://127.0.0.1:8101</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Backend:
-                    </td>
-                    <td>
-                        <a href="https://dcos.io/docs/1.9/administration/id-and-access-mgt/iam-api/">DC/OS Authentication (OAuth)</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
-    <li class="route-type-proxy">
-        <h3 class="route">
-            <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/acs/api/v1/auth/</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        Proxy:
-                    </td>
-                    <td>
-                        <code>http://127.0.0.1:8101</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Backend:
-                    </td>
-                    <td>
-                        <a href="https://dcos.io/docs/1.9/administration/id-and-access-mgt/iam-api/">DC/OS Authentication (OAuth)</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
     <li class="route-type-redirect">
         <h3 class="route">
             <span class="route-type">Redirect</span>
-            <span class="route-path"><code>/login</code></span>
-            <span class="route-desc">User Login</span>
+            <span class="route-path"><code>/mesos_dns</code></span>
         </h3>
         <div class="route-meta">
             <table>
@@ -246,21 +376,16 @@
                         Redirect:
                     </td>
                     <td>
-                        To OpenID Connect Server
+                        <code>/mesos_dns/</code>
                     </td>
                 </tr>
             </table>
         </div>
     </li>
-</ul>
-
-<h3><a id="dcos-component-package-manager-pkgpanda" href="#dcos-component-package-manager-pkgpanda" aria-hidden="true">DC/OS Component Package Manager (Pkgpanda)</a></h3>
-
-<ul class="route-table">
     <li class="route-type-proxy">
         <h3 class="route">
             <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/pkgpanda/</code></span>
+            <span class="route-path"><code>/mesos_dns/</code></span>
         </h3>
         <div class="route-meta">
             <table>
@@ -269,15 +394,7 @@
                         Proxy:
                     </td>
                     <td>
-                        <code>http://&lt;socket&gt;/</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Socket:
-                    </td>
-                    <td>
-                        <code>/run/dcos/pkgpanda-api.sock</code>
+                        <code>http://master.mesos:8123/</code>
                     </td>
                 </tr>
                 <tr>
@@ -285,16 +402,21 @@
                         Backend:
                     </td>
                     <td>
-                        <a href="https://dcos.io/docs/1.9/administration/component-management/">DC/OS Component Package Manager (Pkgpanda)</a>
+                        <a href="https://dcos.io/docs/1.9/usage/service-discovery/mesos-dns/http-interface/">Mesos DNS</a>
                     </td>
                 </tr>
             </table>
         </div>
     </li>
+</ul>
+
+<h3><a id="metadata" href="#metadata" aria-hidden="true">Metadata</a></h3>
+
+<ul class="route-table">
     <li class="route-type-file">
         <h3 class="route">
             <span class="route-type">File</span>
-            <span class="route-path"><code>/pkgpanda/active.buildinfo.full.json</code></span>
+            <span class="route-path"><code>/dcos-metadata/</code></span>
         </h3>
         <div class="route-meta">
             <table>
@@ -303,21 +425,34 @@
                         File:
                     </td>
                     <td>
-                        <code>/opt/mesosphere/active.buildinfo.full.json</code>
+                        <code>/opt/mesosphere/active/dcos-metadata/etc/</code>
                     </td>
                 </tr>
             </table>
         </div>
     </li>
-</ul>
-
-<h3><a id="dcos-diagnostics-3dt" href="#dcos-diagnostics-3dt" aria-hidden="true">DC/OS Diagnostics (3DT)</a></h3>
-
-<ul class="route-table">
+    <li class="route-type-file">
+        <h3 class="route">
+            <span class="route-type">File</span>
+            <span class="route-path"><code>/dcos-metadata/dcos-version.json</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        File:
+                    </td>
+                    <td>
+                        <code>/opt/mesosphere/active/dcos-metadata/etc/dcos-version.json</code>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
     <li class="route-type-proxy">
         <h3 class="route">
             <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/system/health/v1</code></span>
+            <span class="route-path"><code>/dcos-metadata/ui-config.json</code></span>
         </h3>
         <div class="route-meta">
             <table>
@@ -326,7 +461,7 @@
                         Proxy:
                     </td>
                     <td>
-                        <code>http://127.0.0.1:1050</code>
+                        <code>http://127.0.0.1:8101</code>
                     </td>
                 </tr>
                 <tr>
@@ -334,21 +469,27 @@
                         Backend:
                     </td>
                     <td>
-                        <a href="https://dcos.io/docs/1.9/administration/monitoring/#system-health-http-api-endpoint">DC/OS Diagnostics (3DT)</a>
+                        <a href="https://dcos.io/docs/1.9/administration/id-and-access-mgt/iam-api/">DC/OS Authentication (OAuth)</a>
                     </td>
                 </tr>
             </table>
         </div>
     </li>
+    <li class="route-type-unknown">
+        <h3 class="route">
+            <span class="route-type">Unknown</span>
+            <span class="route-path"><code>/metadata</code></span>
+        </h3>
+    </li>
 </ul>
 
-<h3><a id="dcos-history" href="#dcos-history" aria-hidden="true">DC/OS History</a></h3>
+<h3><a id="navstar" href="#navstar" aria-hidden="true">Navstar</a></h3>
 
 <ul class="route-table">
     <li class="route-type-proxy">
         <h3 class="route">
             <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/dcos-history-service/</code></span>
+            <span class="route-path"><code>/navstar/lashup/key</code></span>
         </h3>
         <div class="route-meta">
             <table>
@@ -357,7 +498,7 @@
                         Proxy:
                     </td>
                     <td>
-                        <code>http://leader.mesos:15055/</code>
+                        <code>http://127.0.0.1:62080/lashup/key</code>
                     </td>
                 </tr>
                 <tr>
@@ -365,7 +506,7 @@
                         Backend:
                     </td>
                     <td>
-                        <a href="https://github.com/dcos/dcos/tree/master/packages/dcos-history/extra#api">DC/OS History</a>
+                        Navstar
                     </td>
                 </tr>
             </table>
@@ -373,85 +514,7 @@
     </li>
 </ul>
 
-<h3><a id="dcos-log" href="#dcos-log" aria-hidden="true">DC/OS Log</a></h3>
-
-<ul class="route-table">
-    <li class="route-type-proxy">
-        <h3 class="route">
-            <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/system/v1/logs/v1/</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        Proxy:
-                    </td>
-                    <td>
-                        <code>http://&lt;socket&gt;/</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Socket:
-                    </td>
-                    <td>
-                        <code>/run/dcos/dcos-log.sock</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Backend:
-                    </td>
-                    <td>
-                        <a href="https://dcos.io/docs/1.9/api/dcos-log/">DC/OS Log</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
-</ul>
-
-<h3><a id="dcos-metrics" href="#dcos-metrics" aria-hidden="true">DC/OS Metrics</a></h3>
-
-<ul class="route-table">
-    <li class="route-type-proxy">
-        <h3 class="route">
-            <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/system/v1/metrics/</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        Proxy:
-                    </td>
-                    <td>
-                        <code>http://&lt;socket&gt;/</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Socket:
-                    </td>
-                    <td>
-                        <code>/run/dcos/dcos-metrics-master.sock</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Backend:
-                    </td>
-                    <td>
-                        <a href="https://dcos.io/docs/1.9/api/dcos-metrics/">DC/OS Metrics</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
-</ul>
-
-<h3><a id="dcos-package-manager-cosmos" href="#dcos-package-manager-cosmos" aria-hidden="true">DC/OS Package Manager (Cosmos)</a></h3>
+<h3><a id="package-management" href="#package-management" aria-hidden="true">Package Management</a></h3>
 
 <ul class="route-table">
     <li class="route-type-proxy">
@@ -534,13 +597,70 @@
     </li>
 </ul>
 
-<h3><a id="exhibitor-zookeeper" href="#exhibitor-zookeeper" aria-hidden="true">Exhibitor (Zookeeper)</a></h3>
+<h3><a id="pkgpanda" href="#pkgpanda" aria-hidden="true">Pkgpanda</a></h3>
+
+<ul class="route-table">
+    <li class="route-type-proxy">
+        <h3 class="route">
+            <span class="route-type">Proxy</span>
+            <span class="route-path"><code>/pkgpanda/</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        Proxy:
+                    </td>
+                    <td>
+                        <code>http://&lt;socket&gt;/</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Socket:
+                    </td>
+                    <td>
+                        <code>/run/dcos/pkgpanda-api.sock</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Backend:
+                    </td>
+                    <td>
+                        <a href="https://dcos.io/docs/1.9/administration/component-management/">DC/OS Component Package Manager (Pkgpanda)</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+    <li class="route-type-file">
+        <h3 class="route">
+            <span class="route-type">File</span>
+            <span class="route-path"><code>/pkgpanda/active.buildinfo.full.json</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        File:
+                    </td>
+                    <td>
+                        <code>/opt/mesosphere/active.buildinfo.full.json</code>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+</ul>
+
+<h3><a id="service" href="#service" aria-hidden="true">Service</a></h3>
 
 <ul class="route-table">
     <li class="route-type-redirect">
         <h3 class="route">
             <span class="route-type">Redirect</span>
-            <span class="route-path"><code>/exhibitor</code></span>
+            <span class="route-path"><code>/service/(?&lt;serviceid&gt;[0-9a-zA-Z-.]+)</code></span>
         </h3>
         <div class="route-meta">
             <table>
@@ -549,7 +669,7 @@
                         Redirect:
                     </td>
                     <td>
-                        <code>/exhibitor/</code>
+                        <code>/service/&lt;serviceid&gt;/</code>
                     </td>
                 </tr>
             </table>
@@ -558,7 +678,8 @@
     <li class="route-type-proxy">
         <h3 class="route">
             <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/exhibitor/</code></span>
+            <span class="route-path"><code>/service/(?&lt;serviceid&gt;[0-9a-zA-Z-.]+)/(?&lt;url&gt;.*)</code></span>
+            <span class="route-desc">Proxy to Services running on DC/OS</span>
         </h3>
         <div class="route-meta">
             <table>
@@ -567,160 +688,7 @@
                         Proxy:
                     </td>
                     <td>
-                        <code>http://127.0.0.1:8181/</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Backend:
-                    </td>
-                    <td>
-                        <a href="https://github.com/soabase/exhibitor/wiki/REST-Introduction">Exhibitor (Zookeeper)</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
-</ul>
-
-<h3><a id="marathon" href="#marathon" aria-hidden="true">Marathon</a></h3>
-
-<ul class="route-table">
-    <li class="route-type-redirect">
-        <h3 class="route">
-            <span class="route-type">Redirect</span>
-            <span class="route-path"><code>/marathon</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        Redirect:
-                    </td>
-                    <td>
-                        <code>/marathon/</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Deprecated:
-                    </td>
-                    <td>
-                        Use <code>/service/marathon/</code>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
-    <li class="route-type-proxy">
-        <h3 class="route">
-            <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/marathon/</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        Proxy:
-                    </td>
-                    <td>
-                        <code>http://master.mesos:8080/</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Backend:
-                    </td>
-                    <td>
-                        <a href="https://dcos.io/docs/1.9/api/marathon/">Marathon</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Deprecated:
-                    </td>
-                    <td>
-                        Use <code>/service/marathon/</code>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
-</ul>
-
-<h3><a id="mesos-dns" href="#mesos-dns" aria-hidden="true">Mesos DNS</a></h3>
-
-<ul class="route-table">
-    <li class="route-type-redirect">
-        <h3 class="route">
-            <span class="route-type">Redirect</span>
-            <span class="route-path"><code>/mesos_dns</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        Redirect:
-                    </td>
-                    <td>
-                        <code>/mesos_dns/</code>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
-    <li class="route-type-proxy">
-        <h3 class="route">
-            <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/mesos_dns/</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        Proxy:
-                    </td>
-                    <td>
-                        <code>http://master.mesos:8123/</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Backend:
-                    </td>
-                    <td>
-                        <a href="https://dcos.io/docs/1.9/usage/service-discovery/mesos-dns/http-interface/">Mesos DNS</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
-</ul>
-
-<h3><a id="navstar" href="#navstar" aria-hidden="true">Navstar</a></h3>
-
-<ul class="route-table">
-    <li class="route-type-proxy">
-        <h3 class="route">
-            <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/navstar/lashup/key</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        Proxy:
-                    </td>
-                    <td>
-                        <code>http://127.0.0.1:62080/lashup/key</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Backend:
-                    </td>
-                    <td>
-                        Navstar
+                        <code>$serviceurl</code>
                     </td>
                 </tr>
             </table>
@@ -731,46 +699,10 @@
 <h3><a id="system" href="#system" aria-hidden="true">System</a></h3>
 
 <ul class="route-table">
-    <li class="route-type-file">
-        <h3 class="route">
-            <span class="route-type">File</span>
-            <span class="route-path"><code>/dcos-metadata/</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        File:
-                    </td>
-                    <td>
-                        <code>/opt/mesosphere/active/dcos-metadata/etc/</code>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
-    <li class="route-type-file">
-        <h3 class="route">
-            <span class="route-type">File</span>
-            <span class="route-path"><code>/dcos-metadata/dcos-version.json</code></span>
-        </h3>
-        <div class="route-meta">
-            <table>
-                <tr>
-                    <td>
-                        File:
-                    </td>
-                    <td>
-                        <code>/opt/mesosphere/active/dcos-metadata/etc/dcos-version.json</code>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </li>
     <li class="route-type-proxy">
         <h3 class="route">
             <span class="route-type">Proxy</span>
-            <span class="route-path"><code>/dcos-metadata/ui-config.json</code></span>
+            <span class="route-path"><code>/system/health/v1</code></span>
         </h3>
         <div class="route-meta">
             <table>
@@ -779,7 +711,7 @@
                         Proxy:
                     </td>
                     <td>
-                        <code>http://127.0.0.1:8101</code>
+                        <code>http://127.0.0.1:1050</code>
                     </td>
                 </tr>
                 <tr>
@@ -787,17 +719,11 @@
                         Backend:
                     </td>
                     <td>
-                        <a href="https://dcos.io/docs/1.9/administration/id-and-access-mgt/iam-api/">DC/OS Authentication (OAuth)</a>
+                        <a href="https://dcos.io/docs/1.9/administration/monitoring/#system-health-http-api-endpoint">DC/OS Diagnostics (3DT)</a>
                     </td>
                 </tr>
             </table>
         </div>
-    </li>
-    <li class="route-type-unknown">
-        <h3 class="route">
-            <span class="route-type">Unknown</span>
-            <span class="route-path"><code>/metadata</code></span>
-        </h3>
     </li>
     <li class="route-type-proxy">
         <h3 class="route">
@@ -851,6 +777,74 @@
                     </td>
                     <td>
                         <code>http://leader.mesos/system/v1$url$is_args$query_string</code>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+    <li class="route-type-proxy">
+        <h3 class="route">
+            <span class="route-type">Proxy</span>
+            <span class="route-path"><code>/system/v1/logs/v1/</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        Proxy:
+                    </td>
+                    <td>
+                        <code>http://&lt;socket&gt;/</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Socket:
+                    </td>
+                    <td>
+                        <code>/run/dcos/dcos-log.sock</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Backend:
+                    </td>
+                    <td>
+                        <a href="https://dcos.io/docs/1.9/api/dcos-log/">DC/OS Log</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+    <li class="route-type-proxy">
+        <h3 class="route">
+            <span class="route-type">Proxy</span>
+            <span class="route-path"><code>/system/v1/metrics/</code></span>
+        </h3>
+        <div class="route-meta">
+            <table>
+                <tr>
+                    <td>
+                        Proxy:
+                    </td>
+                    <td>
+                        <code>http://&lt;socket&gt;/</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Socket:
+                    </td>
+                    <td>
+                        <code>/run/dcos/dcos-metrics-master.sock</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Backend:
+                    </td>
+                    <td>
+                        <a href="https://dcos.io/docs/1.9/api/dcos-metrics/">DC/OS Metrics</a>
                     </td>
                 </tr>
             </table>
