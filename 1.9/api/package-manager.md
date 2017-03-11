@@ -1,6 +1,6 @@
 ---
 post_title: DC/OS Package Manager API
-nav_title: Package Manager API
+nav_title: Package Manager
 menu_order: 10
 ---
 
@@ -13,17 +13,13 @@ For information about managing services, see [Managing Services](/docs/1.9/usage
 
 ## Routes
 
-Access to the `package` resource of the Package Manager API is proxied through the Admin Router on each node using the following route:
+Admin Router proxies three routes to the DC/OS Package Manager (Cosmos):
 
-```
-/package/
-```
-
-Access to the `service` resource of the Package Manager API is served up under a different path:
-
-```
-/cosmos/service/
-```
+| Route | Resource |
+|-------|----------|
+| `/cosmos/service/` | `/service/` |
+| `/package/` | `/package/` |
+| `/capabilities` | `/capabilities` |
 
 
 ## Resources
