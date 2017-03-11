@@ -1,152 +1,168 @@
-
-<ul>
-  <li><a href="#pkgpanda">Pkgpanda</a></li>
-  <li><a href="#system">System</a></li>
-</ul>
-
-
-<h3><a id="pkgpanda" href="#pkgpanda" aria-hidden="true">Pkgpanda</a></h3>
-
-<ul class="route-table">
-  <li class="route-type-proxy">
-    <h3 class="route">
-      <span class="route-type">Proxy</span>
-      <span class="route-path"><code>/pkgpanda/</code></span>
-    </h3>
-    <div class="route-meta">
-      <table>
-        <tr>
-          <td>
-            Proxy:
-          </td>
-          <td>
-            <code>http://&lt;socket&gt;/</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Socket:
-          </td>
-          <td>
-            <code>/run/dcos/pkgpanda-api.sock</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Backend:
-          </td>
-          <td>
-            <a href="https://dcos.io/docs/1.9/administration/component-management/">DC/OS Component Package Manager (Pkgpanda)</a>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </li>
-</ul>
-
-<h3><a id="system" href="#system" aria-hidden="true">System</a></h3>
-
-<ul class="route-table">
-  <li class="route-type-proxy">
-    <h3 class="route">
-      <span class="route-type">Proxy</span>
-      <span class="route-path"><code>/system/health/v1</code></span>
-    </h3>
-    <div class="route-meta">
-      <table>
-        <tr>
-          <td>
-            Proxy:
-          </td>
-          <td>
-            <code>http://&lt;socket&gt;</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Socket:
-          </td>
-          <td>
-            <code>/run/dcos/3dt.sock</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Backend:
-          </td>
-          <td>
-            <a href="https://dcos.io/docs/1.9/administration/monitoring/#system-health-http-api-endpoint">DC/OS Diagnostics (3DT)</a>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </li>
-  <li class="route-type-proxy">
-    <h3 class="route">
-      <span class="route-type">Proxy</span>
-      <span class="route-path"><code>/system/v1/logs/v1/</code></span>
-    </h3>
-    <div class="route-meta">
-      <table>
-        <tr>
-          <td>
-            Proxy:
-          </td>
-          <td>
-            <code>http://&lt;socket&gt;/</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Socket:
-          </td>
-          <td>
-            <code>/run/dcos/dcos-log.sock</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Backend:
-          </td>
-          <td>
-            <a href="https://dcos.io/docs/1.9/api/dcos-log/">DC/OS Log</a>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </li>
-  <li class="route-type-proxy">
-    <h3 class="route">
-      <span class="route-type">Proxy</span>
-      <span class="route-path"><code>/system/v1/metrics/</code></span>
-    </h3>
-    <div class="route-meta">
-      <table>
-        <tr>
-          <td>
-            Proxy:
-          </td>
-          <td>
-            <code>http://&lt;socket&gt;/</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Socket:
-          </td>
-          <td>
-            <code>/run/dcos/dcos-metrics-agent.sock</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Backend:
-          </td>
-          <td>
-            <a href="https://dcos.io/docs/1.9/api/dcos-metrics/">DC/OS Metrics</a>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </li>
-</ul>
+<div id="ngindox">
+  <ul class="resources">
+    <li id="resource-pkgpanda" class="resource">
+      <div class="heading">
+        <h2>
+          <a id="pkgpanda" href="#pkgpanda" aria-hidden="true" class="toggleEndpointList" data-id="pkgpanda">Pkgpanda</a>
+        </h2>
+        <span class="options"><a href="#pkgpanda" class="toggleEndpointList" data-id="pkgpanda">Show/Hide</a> </span>
+      </div>
+      <ul id="routes-pkgpanda" class="routes" style="display:none;">
+        <li class="route route-type-proxy">
+          <div class="heading">
+            <h3>
+              <span class="route-type">Proxy</span>
+              <span class="route-path"><code>/pkgpanda/</code></span>
+            </h3>
+          </div>
+          <div class="route-meta">
+            <table>
+              <tr>
+                <td>
+                  Proxy:
+                </td>
+                <td>
+                  <code>http://&lt;socket&gt;/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Socket:
+                </td>
+                <td>
+                  <code>/run/dcos/pkgpanda-api.sock</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Backend:
+                </td>
+                <td>
+                  <a href="https://dcos.io/docs/1.9/administration/component-management/">DC/OS Component Package Manager (Pkgpanda)</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li id="resource-system" class="resource">
+      <div class="heading">
+        <h2>
+          <a id="system" href="#system" aria-hidden="true" class="toggleEndpointList" data-id="system">System</a>
+        </h2>
+        <span class="options"><a href="#system" class="toggleEndpointList" data-id="system">Show/Hide</a> </span>
+      </div>
+      <ul id="routes-system" class="routes" style="display:none;">
+        <li class="route route-type-proxy">
+          <div class="heading">
+            <h3>
+              <span class="route-type">Proxy</span>
+              <span class="route-path"><code>/system/health/v1</code></span>
+            </h3>
+          </div>
+          <div class="route-meta">
+            <table>
+              <tr>
+                <td>
+                  Proxy:
+                </td>
+                <td>
+                  <code>http://&lt;socket&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Socket:
+                </td>
+                <td>
+                  <code>/run/dcos/3dt.sock</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Backend:
+                </td>
+                <td>
+                  <a href="https://dcos.io/docs/1.9/administration/monitoring/#system-health-http-api-endpoint">DC/OS Diagnostics (3DT)</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+        <li class="route route-type-proxy">
+          <div class="heading">
+            <h3>
+              <span class="route-type">Proxy</span>
+              <span class="route-path"><code>/system/v1/logs/v1/</code></span>
+            </h3>
+          </div>
+          <div class="route-meta">
+            <table>
+              <tr>
+                <td>
+                  Proxy:
+                </td>
+                <td>
+                  <code>http://&lt;socket&gt;/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Socket:
+                </td>
+                <td>
+                  <code>/run/dcos/dcos-log.sock</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Backend:
+                </td>
+                <td>
+                  <a href="https://dcos.io/docs/1.9/api/dcos-log/">DC/OS Log</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+        <li class="route route-type-proxy">
+          <div class="heading">
+            <h3>
+              <span class="route-type">Proxy</span>
+              <span class="route-path"><code>/system/v1/metrics/</code></span>
+            </h3>
+          </div>
+          <div class="route-meta">
+            <table>
+              <tr>
+                <td>
+                  Proxy:
+                </td>
+                <td>
+                  <code>http://&lt;socket&gt;/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Socket:
+                </td>
+                <td>
+                  <code>/run/dcos/dcos-metrics-agent.sock</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Backend:
+                </td>
+                <td>
+                  <a href="https://dcos.io/docs/1.9/api/dcos-metrics/">DC/OS Metrics</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
