@@ -137,6 +137,82 @@
                 </li>
             </ul>
         </li>
+        <li id="resource-capabilities" class="resource">
+            <div class="heading">
+                <h2>
+                    <a id="capabilities" href="#capabilities" aria-hidden="true" class="toggleEndpointList" data-id="capabilities">Capabilities</a>
+                </h2>
+                <span class="options"><a href="#capabilities" class="toggleEndpointList" data-id="capabilities">Show/Hide</a> </span>
+            </div>
+            <ul id="routes-capabilities" class="routes" style="display:none;">
+                <li class="route route-type-proxy">
+                    <div class="heading">
+                        <h3>
+                            <span class="route-type">Proxy</span>
+                            <span class="route-path"><code>/capabilities</code></span>
+                        </h3>
+                    </div>
+                    <div class="route-meta">
+                        <table>
+                            <tr>
+                                <td>
+                                    Proxy:
+                                </td>
+                                <td>
+                                    <code>http://127.0.0.1:7070/capabilities</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Backend:
+                                </td>
+                                <td>
+                                    <a href="https://dcos.io/docs/1.9/api/package-manager/">DC/OS Package Manager (Cosmos)</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li id="resource-cosmos" class="resource">
+            <div class="heading">
+                <h2>
+                    <a id="cosmos" href="#cosmos" aria-hidden="true" class="toggleEndpointList" data-id="cosmos">Cosmos</a>
+                </h2>
+                <span class="options"><a href="#cosmos" class="toggleEndpointList" data-id="cosmos">Show/Hide</a> </span>
+            </div>
+            <ul id="routes-cosmos" class="routes" style="display:none;">
+                <li class="route route-type-proxy">
+                    <div class="heading">
+                        <h3>
+                            <span class="route-type">Proxy</span>
+                            <span class="route-path"><code>/cosmos/service/</code></span>
+                        </h3>
+                    </div>
+                    <div class="route-meta">
+                        <table>
+                            <tr>
+                                <td>
+                                    Proxy:
+                                </td>
+                                <td>
+                                    <code>http://127.0.0.1:7070/service/</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Backend:
+                                </td>
+                                <td>
+                                    <a href="https://dcos.io/docs/1.9/api/package-manager/">DC/OS Package Manager (Cosmos)</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </li>
+            </ul>
+        </li>
         <li id="resource-exhibitor" class="resource">
             <div class="heading">
                 <h2>
@@ -583,70 +659,14 @@
                 </li>
             </ul>
         </li>
-        <li id="resource-package-management" class="resource">
+        <li id="resource-package" class="resource">
             <div class="heading">
                 <h2>
-                    <a id="package-management" href="#package-management" aria-hidden="true" class="toggleEndpointList" data-id="package-management">Package Management</a>
+                    <a id="package" href="#package" aria-hidden="true" class="toggleEndpointList" data-id="package">Package</a>
                 </h2>
-                <span class="options"><a href="#package-management" class="toggleEndpointList" data-id="package-management">Show/Hide</a> </span>
+                <span class="options"><a href="#package" class="toggleEndpointList" data-id="package">Show/Hide</a> </span>
             </div>
-            <ul id="routes-package-management" class="routes" style="display:none;">
-                <li class="route route-type-proxy">
-                    <div class="heading">
-                        <h3>
-                            <span class="route-type">Proxy</span>
-                            <span class="route-path"><code>/capabilities</code></span>
-                        </h3>
-                    </div>
-                    <div class="route-meta">
-                        <table>
-                            <tr>
-                                <td>
-                                    Proxy:
-                                </td>
-                                <td>
-                                    <code>http://127.0.0.1:7070/capabilities</code>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Backend:
-                                </td>
-                                <td>
-                                    <a href="https://dcos.io/docs/1.9/api/package-manager/">DC/OS Package Manager (Cosmos)</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </li>
-                <li class="route route-type-proxy">
-                    <div class="heading">
-                        <h3>
-                            <span class="route-type">Proxy</span>
-                            <span class="route-path"><code>/cosmos/service/</code></span>
-                        </h3>
-                    </div>
-                    <div class="route-meta">
-                        <table>
-                            <tr>
-                                <td>
-                                    Proxy:
-                                </td>
-                                <td>
-                                    <code>http://127.0.0.1:7070/service/</code>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Backend:
-                                </td>
-                                <td>
-                                    <a href="https://dcos.io/docs/1.9/api/package-manager/">DC/OS Package Manager (Cosmos)</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </li>
+            <ul id="routes-package" class="routes" style="display:none;">
                 <li class="route route-type-proxy">
                     <div class="heading">
                         <h3>
